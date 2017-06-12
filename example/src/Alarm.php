@@ -1,4 +1,7 @@
 <?php
+
+namespace Chain;
+
 /**
  * Class Alarm
  */

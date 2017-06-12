@@ -1,9 +1,11 @@
 <?php
 
-use Acme\Alarm;
-use Acme\Locks;
-use Acme\Lights;
-use Acme\HomeStatus;
+include 'vendor/autoload.php';
+
+use Chain\Alarm;
+use Chain\Locks;
+use Chain\Lights;
+use Chain\HomeStatus;
 
 $status = new HomeStatus();
 
@@ -16,5 +18,10 @@ $alarm = new Alarm();
 $lights->succeedWith($alarm);
 $alarm->succeedWith($locks);
 
-// Initialize the chain
-$lights->check($status);
+try {
+    // Initialize the chain
+    $lights->check($status);
+    echo "You house is safe!";
+} catch (\Chain\Exception $e) {
+    echo $e->getMessage();
+}

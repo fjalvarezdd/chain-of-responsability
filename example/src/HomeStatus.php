@@ -1,10 +1,9 @@
 <?php
 
-namespace Acme;
+namespace Chain;
 
 /**
  * Class HomeStatus
- * @package Acme\ChainOfResponsibility
  */
 class HomeStatus
 {
